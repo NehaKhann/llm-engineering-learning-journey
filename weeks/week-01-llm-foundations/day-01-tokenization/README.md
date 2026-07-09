@@ -1,152 +1,153 @@
-# 📘 Day 1 — Tokenization & Next-Token Prediction
+# Day 1 — Tokenization & Next-Token Prediction
 
-Learn how a Large Language Model (LLM) converts text into tokens, transforms them into embeddings, and predicts the next token one step at a time.
+> Week 1 • LLM Foundations
 
-This is the core mechanism behind every GPT-style language model.
+Understand how a Large Language Model (LLM) converts text into tokens and predicts the next token using a pretrained GPT-2 model.
 
----
-
-## 🎯 Objective
-
-In this project, you'll explore how GPT-2 performs next-token prediction by:
-
-* Tokenizing input text
-* Feeding tokens into a pretrained GPT-2 model
-* Predicting the most likely next token
-* Understanding what logits represent
-* Exploring GPT-2's Byte Pair Encoding (BPE) tokenizer
+This exercise introduces the fundamental building block behind modern autoregressive language models and serves as the foundation for the rest of the AI Engineering Journey.
 
 ---
 
-## 📂 Project Files
+## 📚 Learning Objectives
 
-| File      | Description                                                                                                      |
-| --------- | ---------------------------------------------------------------------------------------------------------------- |
-| `main.py` | Loads GPT-2, tokenizes a sentence, runs inference, and prints the top 5 predicted next tokens with their logits. |
+By the end of this exercise, you'll understand:
+
+- How GPT-2 tokenizes text using Byte Pair Encoding (BPE)
+- How text is converted into token IDs
+- How a pretrained model predicts the next token
+- What logits represent
+- Why `torch.no_grad()` is used during inference
 
 ---
 
-## ⚙️ Setup
+## 📂 Project Structure
 
-Activate your virtual environment and install the required packages.
+```
+day-01-tokenization/
+├── README.md
+├── tokenization.ipynb
+└── next_token_prediction.py
+```
 
-```powershell
-# From repository root
-venv\Scripts\activate
+| File | Description |
+|------|-------------|
+| `tokenization.ipynb` | Interactive notebook explaining tokenization and next-token prediction step by step. |
+| `next_token_prediction.py` | Standalone Python script for running GPT-2 next-token prediction. |
+| `README.md` | Documentation for this exercise. |
 
-cd week01-llm-foundations\day01-tokenization-next-token-prediction
+---
 
-pip install transformers torch --break-system-packages
+## ⚙️ Requirements
+
+Install the required dependencies from the repository root.
+
+```bash
+pip install -r requirements.txt
+```
+
+or
+
+```bash
+pip install transformers torch
 ```
 
 ---
 
 ## ▶️ Run
 
-```powershell
-python main.py
+```bash
+python next_token_prediction.py
 ```
 
----
+or open
 
-## 📦 Model Download
+```
+tokenization.ipynb
+```
 
-On the first run, Hugging Face downloads the pretrained GPT-2 model (approximately **548 MB**).
-
-This only happens once.
-
-Afterward, the model is loaded from the local cache, so future runs start almost instantly.
+inside Jupyter Notebook or VS Code.
 
 ---
 
-## 🧠 Key Takeaways
+## 🧠 Concepts Covered
 
-### 1. Tokens are not always words
+### Tokenization
 
-GPT-2 doesn't split text strictly by words.
+LLMs don't process raw text directly.
 
-Instead, it uses **Byte Pair Encoding (BPE)** to break text into smaller subword units when necessary.
-
-For example, uncommon words may be divided into multiple tokens.
-
----
-
-### 2. Why do tokens start with `Ġ`?
-
-The `Ġ` character indicates that the token originally had a leading space.
+Instead, text is converted into **tokens**, which are mapped to numerical IDs before entering the model.
 
 Example:
 
 ```
-"My firewall keeps blocking"
+My firewall keeps blocking
+```
 
 ↓
 
-['My', 'Ġfirewall', 'Ġkeeps', 'Ġblocking']
+```
+["My", "Ġfirewall", "Ġkeeps", "Ġblocking"]
 ```
 
-This is simply how GPT-2's byte-level tokenizer stores spacing internally.
+---
+
+### Byte Pair Encoding (BPE)
+
+GPT-2 uses **Byte Pair Encoding (BPE)** to efficiently represent common words while still handling rare words by splitting them into smaller subword units.
+
+This allows the model to work with a fixed vocabulary while supporting virtually any input text.
 
 ---
 
-### 3. The model predicts logits, not probabilities
+### Next-Token Prediction
 
-GPT-2 produces a **logit** (raw score) for every possible next token.
+Given an input sequence, GPT-2 predicts the most likely next token.
 
-Important points:
+Example:
 
-* Logits can be positive or negative.
-* Their absolute values don't matter.
-* Only their relative ranking determines which tokens are most likely.
+```
+Input
 
-To convert logits into probabilities, a **Softmax** function is applied.
+My firewall keeps blocking
+```
 
-This example intentionally prints the raw logits so you can see what the model actually outputs before any probability conversion.
+↓
+
+```
+Predictions
+
+the
+all
+access
+any
+my
+```
+
+The model repeats this process one token at a time to generate complete text.
 
 ---
 
-### 4. Why use `torch.no_grad()`?
+### Logits
 
-During inference, gradient calculations aren't needed.
+The model outputs **logits**, which are raw prediction scores.
 
-Wrapping inference inside:
+Before probabilities can be calculated, logits are passed through a **Softmax** function.
+
+This project intentionally displays the raw logits so you can understand what the model produces internally.
+
+---
+
+### `torch.no_grad()`
+
+During inference, gradients aren't required.
+
+Using
 
 ```python
 with torch.no_grad():
 ```
 
-provides several benefits:
-
-* Lower memory usage
-* Faster execution
-* No unnecessary computation graph
-
-This is standard practice whenever you're using a pretrained model for prediction instead of training.
-
----
-
-### 5. GPT-2 has no domain-specific knowledge
-
-For the prompt:
-
-```
-"My firewall keeps blocking"
-```
-
-GPT-2 predicts generic continuations such as:
-
-* the
-* all
-* access
-* any
-* my
-
-It doesn't understand that the sentence relates to cybersecurity.
-
-This limitation motivates later topics in the series, including:
-
-* Fine-tuning (Week 2)
-* Retrieval-Augmented Generation (Week 6)
+reduces memory usage and improves execution speed.
 
 ---
 
@@ -156,7 +157,7 @@ This limitation motivates later topics in the series, including:
 Tokens:
 ['My', 'Ġfirewall', 'Ġkeeps', 'Ġblocking']
 
-Top 5 predicted next tokens:
+Top 5 Predictions
 
 Ġthe             score: -103.86
 Ġall             score: -103.96
@@ -167,8 +168,25 @@ Top 5 predicted next tokens:
 
 ---
 
-## 🚀 What's Next?
+## 🎯 Key Takeaways
 
-**Week 1 • Day 2 — Transformer Architecture & Attention**
+- LLMs process tokens rather than words.
+- GPT-2 uses Byte Pair Encoding (BPE).
+- The model predicts one token at a time.
+- Logits are converted into probabilities using Softmax.
+- `torch.no_grad()` improves inference performance.
 
-Learn how Transformers decide which earlier words matter most when predicting the next token, and why attention made modern LLMs possible.
+---
+
+## 📖 Related Resources
+
+- Week 1 Overview → `weeks/week-01-llm-foundations`
+- Repository Roadmap → `ROADMAP.md`
+
+---
+
+## ⏭️ Next Lesson
+
+**Day 2 — Transformer Architecture & Attention**
+
+Learn how the Transformer architecture uses self-attention to determine which previous tokens are most relevant when predicting the next token.
