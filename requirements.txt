@@ -1,0 +1,32 @@
+# Week 1 — LLM & Transformer Foundations
+transformers>=4.40.0
+torch>=2.2.0
+
+# Week 2 — Fine-Tuning & SFT
+trl>=0.9.0
+datasets>=2.19.0
+accelerate>=0.30.0
+
+# Week 3 — LoRA, QLoRA, Quantization & Unsloth
+peft>=0.11.0
+bitsandbytes>=0.43.0
+unsloth
+
+# Week 4 — RLHF & PPO
+# (uses trl, already listed above)
+
+# Week 5 — DPO & GRPO
+# (uses trl, already listed above)
+
+# Week 6 — RAG Systems
+sentence-transformers>=2.7.0
+chromadb>=0.5.0
+
+# Week 7 — OCR & Document AI
+pytesseract>=0.3.10
+easyocr>=1.7.1
+pillow>=10.3.0
+pdf2image>=1.17.0
+
+# Week 8 — Capstone
+gradio>=4.30.0
