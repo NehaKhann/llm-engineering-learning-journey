@@ -13,10 +13,10 @@ In this project, you'll learn how a neural network works by:
 - Building a simple neural network with PyTorch
 - Understanding inputs, weights, and biases
 - Running a forward pass to make predictions
-- Measuring error using a loss function
-- Computing gradients with backpropagation
+- Measuring prediction error using a loss function
+- Computing gradients through backpropagation
 - Updating model parameters using gradient descent
-- Observing how the model improves during training
+- Observing how learning improves over multiple training epochs
 
 ---
 
@@ -24,9 +24,9 @@ In this project, you'll learn how a neural network works by:
 
 | File | Description |
 |------|-------------|
-| `neural_network_basics.py` | Demonstrates a simple neural network, forward pass, loss calculation, backpropagation, and the training loop. |
+| `neural_network_basics.py` | Demonstrates a simple neural network, forward pass, loss calculation, backpropagation, and training loop. |
 | `neural_network_basics.ipynb` | Interactive notebook version of the lesson. |
-| `README.md` | Documentation and explanation for the project. |
+| `README.md` | Documentation and explanation of the concepts covered. |
 
 ---
 
@@ -38,7 +38,7 @@ Activate your virtual environment and install the required packages.
 # From repository root
 venv\Scripts\activate
 
-cd prerequisites\neural-networks
+cd prerequisites/neural-networks
 
 pip install torch matplotlib
 ```
@@ -55,17 +55,17 @@ python neural_network_basics.py
 
 ## 🧠 Key Concepts
 
-### 1. What is a Neural Network?
+### 1. Neural Networks
 
-A neural network is a computational model inspired by the human brain. It learns patterns from data by adjusting numerical parameters called **weights** and **biases**.
+A neural network is a mathematical model that learns patterns from data by adjusting **weights** and **biases**.
 
-Modern Large Language Models such as **GPT**, **Llama**, and **Qwen** are all built upon neural network architectures.
+Although modern LLMs contain billions of parameters, they still rely on the same learning principles introduced here.
 
 ---
 
 ### 2. Forward Pass
 
-During the forward pass, input data flows through the network to produce a prediction.
+The forward pass takes input data and produces a prediction using the model's current parameters.
 
 A simplified representation is:
 
@@ -73,13 +73,13 @@ A simplified representation is:
 Prediction = (Input × Weight) + Bias
 ```
 
-At this stage, the model is simply making its best guess using its current parameters.
+At this stage, the model has not learned anything—it is simply making its current best guess.
 
 ---
 
 ### 3. Loss Function
 
-The loss function measures how far the model's prediction is from the correct answer.
+A loss function measures how far the prediction is from the expected output.
 
 - Lower loss → Better predictions
 - Higher loss → Larger errors
@@ -90,27 +90,29 @@ Training aims to minimize this value over time.
 
 ### 4. Backpropagation
 
-After computing the loss, the model performs **backpropagation**.
+Backpropagation computes gradients for every learnable parameter.
 
-PyTorch automatically calculates gradients for every learnable parameter, indicating:
+These gradients tell the model:
 
 - Which parameters contributed to the error
-- How much each parameter should change
+- How much they should change
 - Which direction reduces the loss
+
+PyTorch performs these calculations automatically using **Autograd**.
 
 ---
 
 ### 5. Optimizer
 
-An optimizer updates the model's parameters using the calculated gradients.
+An optimizer updates the model's parameters using the computed gradients.
 
-This project uses **Stochastic Gradient Descent (SGD)** to gradually improve the model's predictions.
+This lesson uses **Stochastic Gradient Descent (SGD)**, one of the most fundamental optimization algorithms in deep learning.
 
 ---
 
 ### 6. Training Loop
 
-A typical training loop consists of four steps:
+Training is an iterative process consisting of four steps:
 
 ```text
 Forward Pass
@@ -122,7 +124,7 @@ Backward Pass
 Update Parameters
 ```
 
-Repeating this cycle allows the model to learn from data.
+Repeating this cycle allows the model to gradually improve its predictions.
 
 ---
 
@@ -132,11 +134,11 @@ Repeating this cycle allows the model to learn from data.
 |---------|-------------|
 | **Neural Network** | A computational model that learns patterns from data by adjusting weights and biases. |
 | **Forward Pass** | Produces predictions from the current model parameters. |
-| **Loss Function** | Measures prediction error. |
+| **Loss Function** | Measures prediction error between output and target values. |
 | **Backpropagation** | Computes gradients used to improve the model. |
 | **Gradient** | Indicates how each parameter should change to reduce the loss. |
-| **Optimizer (SGD)** | Updates model parameters using gradients. |
-| **Training Loop** | Repeats prediction, error calculation, and parameter updates until the model learns. |
+| **Optimizer (SGD)** | Updates model parameters using computed gradients. |
+| **Training Loop** | Repeats prediction, loss calculation, backpropagation, and parameter updates. |
 
 ---
 
@@ -157,8 +159,8 @@ tensor([[0.1234],
 
 Training in progress...
 
-Epoch  0 | Loss: 23.4567 | Prediction: 1.2345
-Epoch  2 | Loss: 12.3456 | Prediction: 2.3456
+Epoch 0  | Loss: 23.4567 | Prediction: 1.2345
+Epoch 2  | Loss: 12.3456 | Prediction: 2.3456
 ...
 Training finished!
 ```
@@ -170,16 +172,16 @@ Training finished!
 After completing this lesson, you'll understand:
 
 - How neural networks transform inputs into predictions
-- How weights and biases are updated during training
-- Why loss functions measure learning progress
+- Why weights and biases determine model behavior
+- How loss functions measure prediction quality
 - How backpropagation computes gradients automatically
 - How optimizers improve model performance over time
-- Why neural networks form the foundation of modern AI systems, including Large Language Models
+- Why these same learning principles power modern AI models, including Large Language Models
 
 ---
 
-## 🚀 What's Next?
+## 🚀 Next Lesson
 
 **Week 1 • Day 1 — Tokenization & Next-Token Prediction**
 
-Learn how Large Language Models convert text into tokens, transform them into numerical representations, and predict the next token one step at a time using GPT-2.
+Learn how Large Language Models convert text into tokens, transform them into numerical representations, and predict the next token using GPT-2.
