@@ -43,7 +43,7 @@ ai-engineering-learning-journey/
 │
 ├── weeks/
 │   ├── week-01-llm-foundations/
-│   ├── week-02-fine-tuning/
+│   ├── week-02-fine-tuning-fundamentals/
 │   ├── week-03-efficient-fine-tuning/
 │   ├── week-04-rlhf/
 │   ├── week-05-preference-optimization/
@@ -52,7 +52,8 @@ ai-engineering-learning-journey/
 │   └── week-08-capstone/
 │
 ├── projects/
-│   └── llm-explainer-dashboard/
+│   ├── llm-explainer-dashboard/
+│   └── custom_assistant/
 │
 ├── README.md
 ├── CURRICULUM.md
@@ -112,9 +113,20 @@ Learn the foundations that power every modern AI model.
 
 ---
 
+## ✅ Week 2 — Fine-Tuning Fundamentals
+
+| Lesson | Topic | Notebook |
+|---------|-------|----------|
+| Day 1 | Prompt Engineering vs Fine-Tuning | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-01-prompt-engineering/prompt_engineering.ipynb) |
+| Day 2 | Instruction Tuning & Chat Templates | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-02-instruction-tuning/instruction_tuning.ipynb) |
+| Day 3 | Dataset Preparation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-03-dataset-preparation/dataset_preparation.ipynb) |
+| Day 4 | Supervised Fine-Tuning (SFT) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-04-supervised-fine-tuning/sft_training.ipynb) |
+| Day 5 | Model Evaluation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-05-model-evaluation/model_evaluation.ipynb) |
+
+---
+
 ## 🚧 Upcoming Modules
 
-- Week 2 — Fine-Tuning Fundamentals
 - Week 3 — LoRA & QLoRA
 - Week 4 — Reinforcement Learning from Human Feedback (RLHF)
 - Week 5 — Preference Optimization (DPO & GRPO)
