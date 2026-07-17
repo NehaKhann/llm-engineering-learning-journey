@@ -36,7 +36,7 @@ The complete learning roadmap is available here:
 ## 📂 Repository Structure
 
 ```text
-ai-engineering-learning-journey/
+ai-engineering-journey/
 
 ├── prerequisites/
 │   └── neural-networks/
@@ -67,9 +67,9 @@ ai-engineering-learning-journey/
 Clone the repository and install the dependencies.
 
 ```powershell
-git clone https://github.com/NehaKhann/ai-engineering-learning-journey.git
+git clone https://github.com/NehaKhann/ai-engineering-journey.git
 
-cd ai-engineering-learning-journey
+cd ai-engineering-journey
 
 python -m venv venv
 
@@ -117,11 +117,11 @@ Learn the foundations that power every modern AI model.
 
 | Lesson | Topic | Notebook |
 |---------|-------|----------|
-| Day 1 | Prompt Engineering vs Fine-Tuning | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-01-prompt-engineering/prompt_engineering.ipynb) |
-| Day 2 | Instruction Tuning & Chat Templates | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-02-instruction-tuning/instruction_tuning.ipynb) |
-| Day 3 | Dataset Preparation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-03-dataset-preparation/dataset_preparation.ipynb) |
-| Day 4 | Supervised Fine-Tuning (SFT) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-04-supervised-fine-tuning/sft_training.ipynb) |
-| Day 5 | Model Evaluation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-learning-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-05-model-evaluation/model_evaluation.ipynb) |
+| Day 1 | Prompt Engineering vs Fine-Tuning | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-01-prompt-engineering/prompt_engineering.ipynb) |
+| Day 2 | Instruction Tuning & Chat Templates | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-02-instruction-tuning/instruction_tuning.ipynb) |
+| Day 3 | Dataset Preparation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-03-dataset-preparation/dataset_preparation.ipynb) |
+| Day 4 | Supervised Fine-Tuning (SFT) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-04-supervised-fine-tuning/sft_training.ipynb) |
+| Day 5 | Model Evaluation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NehaKhann/ai-engineering-journey/blob/main/weeks/week-02-fine-tuning-fundamentals/day-05-model-evaluation/model_evaluation.ipynb) |
 
 ---
 
